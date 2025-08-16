@@ -1,0 +1,34 @@
+// this code has been written in C lang and only contains a function "maximum69Number" , which gets the required job DONE
+
+int maximum69Number (int num) {
+int dup = num , count = 0 , max = 0 , store = num;
+while (dup)
+{
+dup /= 10;
+count++;
+}
+int nah[count] , dex = count -1 ;
+while(num)
+{
+    int i = num % 10;
+    nah[dex] = i ;
+    num /= 10 ;
+    dex--;
+}
+for(int i = 0 ; i < count ; i++)
+{
+    if( nah[i] == 9)
+    {
+        continue;
+    }
+    else if(nah[i] == 6)
+    {
+        nah[i] = 9;
+        for(int j = 0 ; j< count ; j++)
+        {
+            max = max*10 + nah[j];
+        }
+        return max;
+    }
+}
+return store;
