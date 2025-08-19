@@ -1,0 +1,22 @@
+/*Given an integer array nums, return the number of subarrays filled with 0.
+
+A subarray is a contiguous non-empty sequence of elements within an array.*/
+
+long long zeroFilledSubarray(int* nums, int numsSize) {
+    int  streak = 0;
+    long long count = 0;
+    for(int i = 0 ; i < numsSize ; i++)
+    {
+       
+        if(nums[i] == 0)
+        {
+            streak++;
+            count += streak;
+        }
+        else
+        {
+            streak = 0;
+        }
+    }
+    return count ;
+}
