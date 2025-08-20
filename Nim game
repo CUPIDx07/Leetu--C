@@ -1,0 +1,26 @@
+/*You are playing the following Nim Game with your friend:
+
+    Initially, there is a heap of stones on the table.
+    You and your friend will alternate taking turns, and you go first.
+    On each turn, the person whose turn it is will remove 1 to 3 stones from the heap.
+    The one who removes the last stone is the winner.
+
+Given n, the number of stones in the heap, return true if you can win the game assuming both you and your friend play optimally, otherwise return false.*/
+
+// i don't know how i got this prog correct , it's a win win situation for me tho 
+
+bool canWinNim(int n) {
+    if(n <= 3)
+    {
+        return 1;
+    }
+    else if( n % 2 == 0 && n % 4 == 0)
+    {
+        return 0;
+    }
+    else
+    {
+        return 1;
+    }
+    
+}
