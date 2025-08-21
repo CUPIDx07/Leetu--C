@@ -1,0 +1,19 @@
+/*Given a positive integer num, return true if num is a perfect square or false otherwise.
+
+A perfect square is an integer that is the square of an integer. In other words, it is the product of some integer with itself.
+
+You must not use any built-in library function, such as sqrt.*/
+// what's binary search ?? , i haven't read that concept .
+
+bool isPerfectSquare(int num) {
+    if(num == 1 || num == 4 || num == 9)
+    return 1;
+    for(long i = 0 ; i <= (num/4); i++)
+    {
+        if(i * i == num)
+        {
+            return 1;
+        }
+    }
+    return 0;
+}
