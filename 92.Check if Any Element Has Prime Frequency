@@ -1,0 +1,48 @@
+/*You are given an integer array nums.
+
+Return true if the frequency of any element of the array is prime, otherwise, return false.
+
+The frequency of an element x is the number of times it occurs in the array.
+
+A prime number is a natural number greater than 1 with only two factors, 1 and itself.*/
+
+//ezz
+
+bool checkPrimeFrequency(int* nums, int numsSize) {
+    int count , div ;
+    for(int i = 0 ; i< numsSize ; i++)
+    {
+        count = 0 , div = 0;
+        for(int j= 0 ; j< numsSize ; j++)
+        {
+            if(*(nums+i) == *(nums+j))
+            {
+                count++;
+            }
+        }
+        if(count == 1 )
+        {
+        continue;    
+        }
+        else if( count == 2 || count == 3)
+        {
+            return 1;
+        }
+        else
+        {
+            for(int k = 1 ; k<=pow(count,0.5);k++)
+            {
+                if(count % k == 0)
+                {
+                    div++;
+                }
+            }
+            if( div == 1)
+            {
+                return 1;
+            }
+        }
+    }
+    return 0;
+
+}
