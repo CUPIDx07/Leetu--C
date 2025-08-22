@@ -1,0 +1,61 @@
+/*You are given a positive integer n.
+
+Return the maximum product of any two digits in n.
+
+Note: You may use the same digit twice if it appears more than once in n.*/
+
+// wow !
+
+int maxProduct(int n) {
+    int product_of_digits = 1 , rem = 0  ;
+    if(n <= 100)
+    {
+
+        int dup = n ;
+        while(dup)
+        {
+            rem = dup % 10;
+            product_of_digits *= rem ;
+            dup = dup / 10;
+        }
+        return product_of_digits;
+    }
+    int dup2 = n , length = 0;
+    while(dup2)
+    {
+        dup2 = dup2 / 10;
+        length++;
+    }
+    int a[length] , temp , z = 0;
+    while(n)
+    {
+        a[z] = n % 10;
+        n = n / 10 ;
+        z++;
+        
+    }
+    bool swap;
+    for(int i = 0 ; i< length -1 ; i++)
+    {
+        swap = false;
+        for(int j= 0 ; j < length - 1 - i ; j++)
+        {
+            if(a[j] > a[j+1])
+            {
+                temp = a[j];
+                a[j] = a[j+1];
+                a[j+1] = temp;
+                swap = true;
+            }
+            
+        }
+        if(swap == false )
+        {
+            
+            break;
+        }
+    }
+product_of_digits = a[length - 1] * a[length - 2]; 
+return product_of_digits;  
+    
+}
