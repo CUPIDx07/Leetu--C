@@ -1,0 +1,29 @@
+/*You are given an integer array nums.
+
+Return the smallest index i such that the sum of the digits of nums[i] is equal to i.
+
+If no such index exists, return -1.*/
+
+// nice !
+
+int smallestIndex(int* nums, int numsSize) {
+    int sumofdigits;
+    for(int i = 0 ; i< numsSize ; i++)
+    {
+        sumofdigits = 0;
+        int rem = 0;
+        while(*(nums+i))
+        {
+            rem = *(nums+i) % 10;
+            sumofdigits += rem;
+            *(nums + i) = *(nums + i ) / 10;
+
+        }
+        if(i == sumofdigits)
+        {
+            return i;
+        }
+    }
+    return -1;
+    
+}
