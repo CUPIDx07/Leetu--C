@@ -5,7 +5,7 @@
 
 Return true if the final two digits in s are the same; otherwise, return false.*/
 
-// miracle !
+// miracle !!
 
 bool hasSameDigits(char* s) {
    int len = strlen(s) , i;
