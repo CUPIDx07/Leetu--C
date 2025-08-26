@@ -1,0 +1,32 @@
+/*You are given two integers n and t. Return the smallest number greater than or equal to n such that the product of its digits is divisible by t.*/
+// kinda easy !
+
+int smallestNumber(int n, int t) {
+    if(n % 10 == 0)
+    {
+        return n;
+    }
+    int d  , product , ten = 10 , dup;
+        while(ten )
+        {
+        product = 1;
+        dup = n;
+        while(dup)
+        {
+          d = dup % 10;
+          product *= d;
+          dup = dup / 10;
+        }
+        if(product % t == 0)
+        {
+            return n;
+        }
+        else
+        {
+            n++;
+            ten--;
+        }
+        }
+    return 0;
+    
+}
