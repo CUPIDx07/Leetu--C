@@ -1,0 +1,47 @@
+/*Alice and Bob are playing a game where they take turns removing stones from a pile, with Alice going first.
+
+    Alice starts by removing exactly 10 stones on her first turn.
+    For each subsequent turn, each player removes exactly 1 fewer stone than the previous opponent.
+
+The player who cannot make a move loses the game.
+
+Given a positive integer n, return true if Alice wins the game and false otherwise.*/
+
+// took some time but it was worth it !
+
+bool canAliceWin(int n) {
+    if(n < 10)
+    {
+        return 0;
+    }
+    n = n -10;
+    if(n < 9)
+    {
+        return 1;
+    }
+    int choice = 1, stones_removed = 9;
+    do {
+        switch (choice) {
+        case 1: // Bob
+            if (n > 0 && n >= stones_removed) {
+                n = n - stones_removed;
+                choice = 2;
+                break;
+            } else {
+                return 1;
+                break;
+            }
+        case 2:
+            if (n > 0 && n >= stones_removed) {
+                n = n - stones_removed;
+                choice = 1;
+                break;
+            } else {
+                return 0;
+                break;
+            }
+        }
+    stones_removed--;
+    }while(choice);
+    return 1;
+}
