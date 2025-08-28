@@ -1,0 +1,24 @@
+/*Given a positive integer num, return the number of positive integers less than or equal to num whose digit sums are even.
+
+The digit sum of a positive integer is the sum of all its digits.*/
+
+int countEven(int num) {
+    int rem = 0 , sum_of_digits,count = 0,dup;
+    for(int i = 1 ; i <= num ; i++)
+    {
+        dup = i;
+        sum_of_digits = 0;
+        while(dup)
+        {
+            rem = dup % 10;
+            sum_of_digits += rem;
+            dup = dup/10;
+        }
+        if(sum_of_digits % 2 == 0)
+        {
+            count++;
+        }
+    }
+    return count;
+    
+}
