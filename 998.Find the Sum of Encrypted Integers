@@ -1,0 +1,35 @@
+/*You are given an integer array nums containing positive integers. We define a function encrypt such that encrypt(x) replaces every
+digit in x with the largest digit in x. For example, encrypt(523) = 555 and encrypt(213) = 333.*/
+
+int sumOfEncryptedInt(int* nums, int numsSize) {
+    int sum = 0 , max , rem , count ;
+    for(int i = 0 ; i < numsSize ; i++)
+    {
+        if(nums[i] < 10)
+        {
+            sum += nums[i];
+        }
+        else
+        {
+            max = nums[i] % 10;
+            while(nums[i])
+            {
+                rem = nums[i] % 10;
+                if(rem > max)
+                {
+                    max = rem;
+                }
+                nums[i] = nums[i] / 10;
+                count++;
+            }
+            while(count != 0)
+            {
+                nums[i] = nums[i]*10 + max;
+                count--;
+            }
+
+        sum += nums[i];
+        }
+    }
+    return sum;
+}
