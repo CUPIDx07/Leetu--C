@@ -1,0 +1,49 @@
+/*You are given a 0-indexed integer array nums of size 3 which can form the sides of a triangle.
+
+    A triangle is called equilateral if it has all sides of equal length.
+    A triangle is called isosceles if it has exactly two sides of equal length.
+    A triangle is called scalene if all its sides are of different lengths.
+
+Return a string representing the type of triangle that can be formed or "none" if it cannot form a triangle.*/
+
+char* triangleType(int* nums, int numsSize) {
+    int index = 0, max = 0, sum = 0,equi = 1;
+    while(index != numsSize)
+    {
+        sum += nums[index];
+        if(max < nums[index])
+        {
+            max = nums[index];
+        }
+        index++;
+    }
+    if(!((sum - max) > max))
+    {
+        return "none";
+    }
+    for(int i= 0 ; i< numsSize - 1 ; i++)
+    {
+        for(int j= 0 ; j< numsSize; j++)
+        {
+            if(i==j)
+            {
+                continue;
+            }
+            else if(nums[i] == nums[j])
+            {
+                equi++;
+            }
+        }
+    }
+    if(equi > 3)
+    {
+        return "equilateral";
+    }
+    else if(equi > 1 && equi <= 3)
+    {
+        return "isosceles";
+    }
+    return "scalene";
+
+
+}
